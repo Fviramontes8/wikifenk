@@ -1,0 +1,5 @@
+[debug]
+port=9563
+
+[default]
+template_dir = "site"

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>
+  TensorFlowLite C API docs
+</title>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<body>
+
+<h2> Code </h2>
+<h3> Quick example </h3>
+
+<pre><code class="terminal-cmd">// Create the model and interpreter options.
+TfLiteModel* model = TfLiteModelCreateFromFile("/path/to/model.tflite");
+TfLiteInterpreterOptions* options = TfLiteInterpreterOptionsCreate();
+TfLiteInterpreterOptionsSetNumThreads(options, 2);
+// Create the interpreter.
+TfLiteInterpreter* interpreter = TfLiteInterpreterCreate(model, options);
+// Allocate tensors and populate the input tensor data.
+TfLiteInterpreterAllocateTensors(interpreter);
+TfLiteTensor* input_tensor =
+    TfLiteInterpreterGetInputTensor(interpreter, 0);
+TfLiteTensorCopyFromBuffer(input_tensor, input.data(),
+                           input.size() * sizeof(float));
+// Execute inference.
+TfLiteInterpreterInvoke(interpreter);
+// Extract the output tensor data.
+const TfLiteTensor* output_tensor =
+     TfLiteInterpreterGetOutputTensor(interpreter, 0);
+TfLiteTensorCopyToBuffer(output_tensor, output.data(),
+                         output.size() * sizeof(float));
+// Dispose of the model and interpreter objects.
+TfLiteInterpreterDelete(interpreter);
+TfLiteInterpreterOptionsDelete(options);
+TfLiteModelDelete(model);
+</code></pre>
+
+<h3> Types used by C API (see c_api_types.h) </h3>
+<pre> <code class="terminal-cmd">typedef struct TfLiteModel TfLiteModel;
+typedef struct TfLiteInterpreterOptions TfLiteInterpreterOptions;
+typedef struct TfLiteInterpreter TfLiteInterpreter;
+typedef struct TfLiteTensor TfLiteTensor;
+</code></pre>
+
+<h2> License </h2>
+<p>
+Copyright 2020 The TensorFlow Authors. All Rights Reserved. <br>
+
+Licensed under the Apache License, Version 2.0 (the "License"); <br>
+you may not use this file except in compliance with the License. <br>
+You may obtain a copy of the License at <br> <br>
+    http://www.apache.org/licenses/LICENSE-2.0 <br> <br>
+Unless required by applicable law or agreed to in writing, software <br>
+distributed under the License is distributed on an "AS IS" BASIS, <br>
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. <br>
+See the License for the specific language governing permissions and <br>
+limitations under the License.
+</p>
+</body>
+
+<footer>
+<hr>
+<a href="/">
+	Home
+</a>
+<p>
+Made with love by Fenk
+</p>
+
+</footer>
+
+</html>

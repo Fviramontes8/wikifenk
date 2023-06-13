@@ -1,0 +1,9 @@
+.terminal-cmd {
+  display: block;
+  word-wrap: break-word;
+  background: #e5e7eb;
+  font-family: monospace;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 0;
+}
