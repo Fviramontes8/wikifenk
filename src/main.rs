@@ -37,6 +37,11 @@ fn cmake_install() -> Template {
 }
 
 #[get("/")]
+fn ort_install() -> Template {
+    Template::render("ort_install", context! {})
+}
+
+#[get("/")]
 fn render_css() -> Template {
     Template::render("style", context! {})
 }
@@ -50,6 +55,7 @@ fn rocket() -> _ {
         .mount("/opencv_install", routes![opencv_install])
         .mount("/tflite_install", routes![tflite_install])
         .mount("/cmake_install", routes![cmake_install])
+        .mount("/onnxruntime_install", routes![ort_install])
         .mount("/style.css", routes![render_css])
         .attach(Template::fairing())
 }
