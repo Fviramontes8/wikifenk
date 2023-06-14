@@ -16,38 +16,32 @@
 
 <p> Gonna need Google bazel. These are the preferred commands to install it </p>
 
-<pre>
-<code class="terminal-cmd">wget https://github.com/bazelbuild/bazelisk/releases/download/v1.17.0/bazelisk-linux-amd64
+<pre><code class="terminal-cmd">wget https://github.com/bazelbuild/bazelisk/releases/download/v1.17.0/bazelisk-linux-amd64
 mv bazelisk-linux-amd64 bazel
 chmod +x bazel
 mv bazel ~/.local/bin
-</code>
-</pre>
+</code></pre>
 
 <h2> Cloning TensorFlow from source (version 2.5.0) </h2>
 
-<pre>
-<code class="terminal-cmd">git clone https://github.com/tensorflow/tensorflow -b v2.5.0
-</code>
-</pre>
+<pre><code class="terminal-cmd">git clone https://github.com/tensorflow/tensorflow -b v2.5.0
+</code></pre>
 
 <h2> Installation process </h2>
-<pre>
-<code class="terminal-cmd">cd tensorflow/tensorflow/lite
+
+<pre><code class="terminal-cmd">cd tensorflow/tensorflow/lite
 bazel build -c opt //tensorflow/lite/c:tensorflowlite_c
 cp ../../bazel-bin/tensorflow/lite/c/libtensorflowlite_c.so /usr/lib
-</code>
-</pre>
+</code></pre>
 
 <p> Cannot forget about the header files too! </p>
-<pre>
-<code class="terminal-cmd">sudo mkdir -p /usr/local/include/tensorflow/lite/c
+
+<pre><code class="terminal-cmd">sudo mkdir -p /usr/local/include/tensorflow/lite/c
 sudo cp tensorflow/lite/c/c_api.h /usr/local/include/tensorflow/lite/c/c_api.h
 sudo cp tensorflow/lite/c/c_api_experimental.h /usr/local/include/tensorflow/lite/c/c_api_experimental.h
 sudo cp tensorflow/lite/c/c_api_types.h /usr/local/include/tensorflow/lite/c/c_api_types.h
 sudo cp tensorflow/lite/c/common.h /usr/local/include/tensorflow/lite/c/common.h
-</code>
-</pre>
+</code></pre>
 
 <p> (This might be missing more header files... or even be missing the TensorFlow C API install too we'll see in the future </p>
 
