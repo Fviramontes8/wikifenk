@@ -30,6 +30,12 @@ sudo apt install build-essential cmake git pkg-config\
 git clone https://github.com/opencv/opencv_contrib
 </code></pre>
 
+<h2> Cloning OpenCV's github repo at a particular version (e.g. 4.5.4)</h2>
+
+<pre><code class="terminal-cmd">git clone https://github.com/opencv/opencv -b 4.5.4
+git clone https://github.com/opencv/opencv_contrib -b 4.5.4
+</code></pre>
+
 <h2> Creating OpenCV build with CMake </h2>
 
 <pre><code class="terminal-cmd">cd opencv
@@ -38,7 +44,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local/\
     -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON\
     -D OPENCV_GENERATE_PKGCONFIG=ON\
     -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules\
-    -D BUILD_EXAMPLES=ON
+    -D BUILD_EXAMPLES=ON ..
 </code></pre>
 
 <h2> Building an install OpenCV </h2>
