@@ -12,9 +12,26 @@
 <h1> Installing ONNX Runtime from source</h1>
 <hr>
 
-<pre><code class="terminal-cmd">git clone https://github.com/microsoft/onnxruntime
+<h2> Cloning repo and checking out version 1.15.0</h2>
+<p> To look at other available versions <a href="https://github.com/microsoft/onnxruntime/releases">click here</a></p>
+<pre><code class="terminal-cmd">git clone https://github.com/microsoft/onnxruntime -b v1.15.0
 cd onnxruntime
-./build.sh --config RelWithDebInfo --build_shared_lib --parallel --compile_no_warning_as_error --skip_submodule_sync
+</code></pre>
+
+<h2> Build flags to generate shared libraries for CPU only inference applications</h2>
+<pre><code class="terminal-cmd">./build.sh --config RelWithDebInfo --build_shared_lib --parallel --compile_no_warning_as_error --skip_submodule_sync
+</code></pre>
+
+<!--
+<h2> Build flags to generate shared libraries with CPU, & CUDA inference applications(COMING SOON) </h2>
+<h2> Build flags to generate shared libraries with CPU, & OpenVino inference applications(COMING SOON) </h2>
+<h2> Build flags to generate shared libraries with CPU, CUDA, & OpenVino inference applications(COMING SOON) </h2>
+-->
+
+<h2> Installing shared objects and header files </h2>
+
+<pre><code class="terminal-cmd">cd build/Linux/RelWithDebInfo
+sudo make install
 </code></pre>
 
 </body>
@@ -31,4 +48,3 @@ Made with love by Fenk
 </footer>
 
 </html>
-
