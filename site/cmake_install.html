@@ -12,8 +12,17 @@
 <h1> Installing CMake from source</h1>
 <hr>
 
+<h2> Installing the most recent version</h2>
 <pre><code class="terminal-cmd">git clone https://github.com/kitware/cmake
-cd cmake
+</code></pre>
+
+<h2> Installing a specific version</h2>
+<p> To look at available versions, <a href="https://github.com/Kitware/CMake/releases"> click here </a> </p>
+<pre><code class="terminal-cmd">git clone https://github.com/kitware/cmake -b v3.26.4
+</code></pre>
+
+<h2> Changing directory, building, and installing CMake </h2>
+<pre><code class="terminal-cmd">cd cmake
 ./bootstrap && make && sudo make install
 </code></pre>
 
