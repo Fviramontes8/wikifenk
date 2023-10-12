@@ -29,21 +29,23 @@ mv bazel ~/.local/bin
 
 <h2> Installation process </h2>
 
-<pre><code class="terminal-cmd">cd tensorflow/tensorflow/lite
+<p> Tensorflow 2.5.0 requires that bazel be less than 3.99.00 </p>
+
+<pre><code class="terminal-cmd">cd tensorflow
 bazel build -c opt //tensorflow/lite/c:tensorflowlite_c
-cp ../../bazel-bin/tensorflow/lite/c/libtensorflowlite_c.so /usr/lib
 </code></pre>
 
-<p> Cannot forget about the header files too! </p>
+<p> Now to copy over the shared library file and header files to appropriate places </p>
 
-<pre><code class="terminal-cmd">sudo mkdir -p /usr/local/include/tensorflow/lite/c
+<pre><code class="terminal-cmd">cp bazel-bin/tensorflow/lite/c/libtensorflowlite_c.so /usr/lib
+sudo mkdir -p /usr/local/include/tensorflow/lite/c
 sudo cp tensorflow/lite/c/c_api.h /usr/local/include/tensorflow/lite/c/c_api.h
 sudo cp tensorflow/lite/c/c_api_experimental.h /usr/local/include/tensorflow/lite/c/c_api_experimental.h
 sudo cp tensorflow/lite/c/c_api_types.h /usr/local/include/tensorflow/lite/c/c_api_types.h
 sudo cp tensorflow/lite/c/common.h /usr/local/include/tensorflow/lite/c/common.h
 </code></pre>
 
-<p> (This might be missing more header files... or even be missing the TensorFlow C API install too we'll see in the future </p>
+<p> (This might be missing more header files... or even be missing the TensorFlow C API install too we'll see in the future) </p>
 
 </body>
 
