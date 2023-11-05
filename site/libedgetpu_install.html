@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>
+	libedgetpu install
+</title>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<body>
+	<h1>
+		Downloading the code from github
+	</h1>
+	<p>
+	It is required to download the libedgetpu git to begin the build of the edgetpu shared library
+	</p>
+<pre><code class="terminal-cmd">git clone https://github.com/google-coral/libedgetpu
+cd libedgetpu
+</pre></code>
+
+	<h1>
+		Build and compile libedgetpu
+	</h1>
+
+<pre><code class="terminal-cmd">DOCKER_CPUS="k8" DOCKER_IMAGE="ubuntu:18.04" DOCKER_TARGETS=libedgetpu make docker-build
+</pre></code>
+
+	<p>
+	The generated shared objects should be in the "out" folder
+	</p>
+
+	<h1>
+		Copying libedgetpu.so
+	</h1>
+
+<pre><code class="terminal-cmd">sudo cp out/throttled/k8/* /usr/lib
+</code></pre>
+
+</body>
+
+<footer>
+<hr>
+<a href="/">
+	home
+</a>
+<p>
+made with love by fenk
+</p>
+
+</footer>
+
+</html>

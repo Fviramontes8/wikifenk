@@ -32,6 +32,11 @@ fn tflite_install() -> Template {
 }
 
 #[get("/")]
+fn libedgetpu_install() -> Template {
+    Template::render("libedgetpu_install", context! {})
+}
+
+#[get("/")]
 fn cmake_install() -> Template {
     Template::render("cmake_install", context! {})
 }
@@ -54,6 +59,7 @@ fn rocket() -> _ {
         .mount("/tensorflowlite", routes![tensorflowlite_docs])
         .mount("/opencv_install", routes![opencv_install])
         .mount("/tflite_install", routes![tflite_install])
+        .mount("/libedgetpu_install", routes![libedgetpu_install])
         .mount("/cmake_install", routes![cmake_install])
         .mount("/onnxruntime_install", routes![ort_install])
         .mount("/style.css", routes![render_css])

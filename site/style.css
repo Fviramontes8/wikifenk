@@ -1,9 +1,24 @@
 .terminal-cmd {
   display: block;
   word-wrap: break-word;
-  background: #e5e7eb;
+  /*background: #5e7660;*/
+  /*background: #201c29;*/
+  background: #1b1b1b;
+  border-radius: 8px;
+  color: #00d084;
   font-family: monospace;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 8px;
+}
+
+pre code {
+  display: block;
+  background: #5e7671;
+  white-space: pre;
+  overflow-x: scroll;
   max-width: 100%;
   min-width: 100px;
   padding: 0;
 }
+
