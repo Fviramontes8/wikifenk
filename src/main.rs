@@ -47,6 +47,11 @@ fn ort_install() -> Template {
 }
 
 #[get("/")]
+fn recommendations() -> Template {
+    Template::render("recommendations", context! {})
+}
+
+#[get("/")]
 fn render_css() -> Template {
     Template::render("style", context! {})
 }
@@ -62,6 +67,7 @@ fn rocket() -> _ {
         .mount("/libedgetpu_install", routes![libedgetpu_install])
         .mount("/cmake_install", routes![cmake_install])
         .mount("/onnxruntime_install", routes![ort_install])
+        .mount("/recommendations", routes![recommendations])
         .mount("/style.css", routes![render_css])
         .attach(Template::fairing())
 }
