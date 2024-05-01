@@ -52,6 +52,11 @@ fn recommendations() -> Template {
 }
 
 #[get("/")]
+fn executorch_install() -> Template {
+    Template::render("executorch_install", context! {})
+}
+
+#[get("/")]
 fn render_css() -> Template {
     Template::render("style", context! {})
 }
@@ -68,6 +73,7 @@ fn rocket() -> _ {
         .mount("/cmake_install", routes![cmake_install])
         .mount("/onnxruntime_install", routes![ort_install])
         .mount("/recommendations", routes![recommendations])
+        .mount("/executorch_install", routes![executorch_install])
         .mount("/style.css", routes![render_css])
         .attach(Template::fairing())
 }
