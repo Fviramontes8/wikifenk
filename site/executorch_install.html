@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<title>
+  Executorch v0.2.0 install
+</title>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+<body>
+  <h1> Installing Executorch from source </h1>
+  <hr>
+
+  <h2> Installing executorch v0.2.0 </h2>
+  <pre><code class="terminal-cmd">git clone https://github.com/pytorch/executorch -b v0.2.0
+    </code></pre>
+
+  <h2> Updating and pulling submodules </h2>
+  <pre><code class="terminal-cmd">cd executorch
+      git submodule sync
+      git submodule update --init
+    </code> </pre>
+
+  <h2> Upgrading setuptools </h2>
+  <p> On Pop!_OS 22.04 it is required to upgrade setuptools before running install_requirements.sh.
+    I do not know if this is needed for other distributions </p>
+  <pre><code class="terminal-cmd">pip install -U setuptools
+    </code> </pre>
+
+  <h2> Installing requirements for executorch </h2>
+  <pre><code class="terminal-cmd">./install_requirements.sh
+    </code> </pre>
+</body>
+
+<footer>
+  <hr>
+  <a href="/">
+    Home
+  </a>
+  <p>
+    Made with love by Fenk
+  </p>
+</footer>
+
+</html>
