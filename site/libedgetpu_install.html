@@ -14,7 +14,7 @@
 	<p>
 	It is required to download the libedgetpu git to begin the build of the edgetpu shared library
 	</p>
-<pre><code class="terminal-cmd">git clone https://github.com/google-coral/libedgetpu
+<pre><code class="terminal-cmd">git clone https://github.com/google-coral/libedgetpu -b release-grouper
 cd libedgetpu
 </pre></code>
 
@@ -33,7 +33,23 @@ cd libedgetpu
 		Install script to install shared objects
 	</h1>
 
+<p> Before running install script change line 181 to this </p>
+<pre><code class="terminal-cmd">"/usr/local/lib/libedgetpu.so.1.0"
+</code></pre>
+
+<p> Then you can run the install script </p>
 <pre><code class="terminal-cmd">sudo bash scripts/install.sh
+</code></pre>
+
+<h2> CMake shared library compatibility command </h2>
+<pre><code class="terminal-cmd">cd /usr/local/lib
+sudo ln -s libedgetpu.so.1 libedgetpu.so
+</code></pre>
+
+<h2> Example of adding libedgetpu to CMake project </h2>
+<pre><code class="terminal-cmd">target_link_libraries(${PROJECT_NAME}
+	PRIVATE libedgetpu.so
+)
 </code></pre>
 
 <h1>
